@@ -25,3 +25,12 @@ router.get('/shop/pants',(요청, 응답) =>{
 
 
 module.exports = router
+
+
+
+
+
+
+
+
+
