@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <body class="grey-bg">
+        <!-- <%= JSON.stringify(posts) %> -->
+        <%- include('nav.ejs') %>
+
+      <input class="search">
+      <button class="search-send">검색</button>
+
+      <script>
+
+        document.querySelector('.search-send').addEventListener('click', function(){
+          let enter = document.querySelector('.search').value
+          location.href = '/search?val=' + enter
+        })
+
+      </script>
+
+      <h4>검색결과</h4>
+
+        <div class="white-bg">
+          <% for (let i = 0; i < posts.length; i++){ %>
+          <div class="list-box">
+            <h4>
+              <a href="/detail/<%= posts[i]._id %>"><%= posts[i].title %></a>
+              <a href="/edit/<%= posts[i]._id %>">✏️</a>
+              <span class="delete" data-id="<%= posts[i]._id %>">🗑️</span>
+            </h4>
+            <p>글내용임</p>
+          </div>
+        <% } %>
+        </div> 
+
+        <a href="/list/next/<%= posts[posts.length-1]._id %>">next</a>
+
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+
+
+      
+      </body>
+
+</body>
+</html>
